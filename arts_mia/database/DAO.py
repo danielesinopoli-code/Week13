@@ -15,7 +15,7 @@ class DAO:
         query = "SELECT * FROM objects"
         cursor.execute(query)
         for row in cursor: # row è un dizionario
-            #result.append(Object(row["object_id"], row["object_name"]))
+            #result.append(Object(row["object_id"], row["object_name"])) ...
             result.append(Object(**row)) # ** fa l'unpacking del dizionario
 
         cursor.close()

@@ -18,6 +18,15 @@ class Model:
             visited_nodes.append(v)
         return visited_nodes
 
+    def getPercorsoMinimo(self, idStazPartenza, idStazArrivo):
+
+        vSource = self._dizionario_fermate[idStazPartenza]
+        vTarget = self._dizionario_fermate[idStazArrivo]
+
+        costo, percorso = nx.single_source_dijkstra(self._grafo, vSource, vTarget,weight='tempo')
+
+        return costo, percorso
+
 
     def getAllFermate(self):
         fermate = DAO.readAllFermate()
