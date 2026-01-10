@@ -3,7 +3,7 @@ from metro_paris.model.connessione import Connessione
 from metro_paris.model.fermata import Fermata
 
 
-class DAO():
+class DAO:
     pass
 
     @staticmethod

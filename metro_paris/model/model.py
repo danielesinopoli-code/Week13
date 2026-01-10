@@ -114,4 +114,12 @@ class Model:
 
         print(self._grafo)
 
+    def getPerscorsoMinimo(self, idStazPartenza, idStazArrivo):
+        vSource = self._dizionario_fermate[idStazPartenza]
+        vtarget = self._dizionario_fermate[idStazArrivo]
+        costo, percorso=nx.single_source_dijkstra(self._grafo,vSource,vtarget,weight="tempo")
+
+        return costo,percorso
+
+
 

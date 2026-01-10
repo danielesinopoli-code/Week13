@@ -33,10 +33,24 @@ class View():
         self._btnCompConnessa = ft.ElevatedButton(text="Cerca Connessa", on_click=self._controller.handleCompConnessa,
                                                   bgcolor="orange",
                                                   color="white",
+                                                  disabled= True,
                                                   width=200)
 
         self._page.controls.append(ft.Row([self._btnAnalizzaOggetti, self._txtIdOggetto, self._btnCompConnessa],
                                           alignment=ft.MainAxisAlignment.CENTER))
+
+        #row2
+        self._ddLunghezza = ft.Dropdown(label="Lunghezza",width=300, border_color="orange")
+        self._btnCercaOggetti = ft.ElevatedButton(text="Cerca Oggetti", on_click=self._controller.handleCercaOggetti,
+                                                bgcolor="orange",
+                                                color="white",
+                                                disabled= True,
+                                                width=200)
+
+        row2=ft.Row([self._ddLunghezza, self._btnCercaOggetti], alignment=ft.MainAxisAlignment.CENTER)
+        self._page.controls.append(row2)
+
+
 
         # List View where the reply is printed
         self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)

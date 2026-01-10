@@ -1,3 +1,5 @@
+import copy
+
 from arts_mia.database.DAO import DAO
 import networkx as nx
 from arts_mia.model.connessione import Connessione
@@ -52,3 +54,42 @@ class Model:
         albero = nx.dfs_tree(self._grafo, nodo_sorgente)
         print(f"Albero: {albero}")
         return len(albero.nodes)
+
+    def getPercrosoMAssimo(self, id_oggetto, lunghezza):
+        v_iniziale = self._objects_dict[id_oggetto]
+        self._soluzioneMigliore = [] #Lista di nodi
+        self._pesoMigliore =0
+
+        parziale = [v_iniziale] #inserisco il primo nodo , quello di partenza
+        self.ricorsione(parziale, lunghezza)
+
+        return soluzioneMigliore, pesoMigliore
+
+
+    def ricorsione(self, parziale, lunghezza):
+        if len(parziale) ==  lunghezza:
+            # Qui ho la soluzione
+            if self.calcolaPeso(parziale) > self.pesoMigliore:
+                self._pesoMigliore = self.calcolaPeso(parziale)
+                self._soluzioneMigliore = copy.deepcopy(parziale)
+            return
+        #Altrimenti attivo la ricorsione
+        for v in self._grafo.neighbors(parziale[-1]): #Vicini dell ultimo nodo aggiunto
+            if v not in parziale and v.classification == parziale[0]:
+                parziale.append(v)
+                self.ricorsione(parziale, lunghezza)
+                parziale.pop()
+
+
+
+
+    def calcolaPeso(self,listaNodi):
+        pesoTotale= 0
+        for i in range(0,len(listaNodi)):
+            u= listaNodi[i]
+            v= listaNodi[i+1]
+            pesoTotale += self._grafo[u][v]["peso"]
+        return pesoTotale
+
+
+

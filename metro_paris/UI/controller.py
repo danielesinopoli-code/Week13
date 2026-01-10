@@ -15,6 +15,9 @@ class Controller:
         for u, v, data in self._model._grafo.edges(data=True):
             tempo_perc = data["tempo"]
             self._view.lst_result.controls.append(ft.Text(f"{u} -> {v}, Tempo percorrenza: {tempo_perc}"))
+
+        self._view._btnCalcola.disabled = False
+        self._view._btnPercorsoMinimo.disabled = False
         self._view.update_page()
 
 
@@ -39,3 +42,21 @@ class Controller:
         for fermata in self._model._lista_fermate:
             dd.options.append(ft.dropdown.Option(key=fermata.id_fermata,
                                                  text=fermata.nome))
+
+    def handlePercorsoMinimo(self, e):  #uso djikastra per trovare percorso minimo
+        idStazPartenza = int(self._view._ddStazPartenza.value)
+        print(f"{idStazPartenza}")
+        idStazArrivo = int(self._view._ddStazArrivo.value)
+        print(f"{idStazArrivo}")
+        self._view.lst_result.controls.clear()
+        self._view.lst_result.controls.append(
+            ft.Text(f"Percorso minimo tra{self._model._dizionario_fermate[idStazPartenza]} ->{self._model._dizionario_fermate[idStazArrivo]}"))
+        costo, percorso= self._model.getPerscorsoMinimo(idStazPartenza,idStazArrivo)
+        for f in percorso:
+            self._view.lst_result.controls.append(ft.Text(f"{f}"))
+
+        self._view.lst_result.controls.append(ft.Text(f"costo : {costo}"))
+        self._view.update_page()
+
+
+
