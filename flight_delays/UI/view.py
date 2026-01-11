@@ -52,7 +52,7 @@ class View():
 
         row3 = ft.Row([self.txtNumTratteMassimo, self.btnCercaItinerario],
                       alignment=ft.MainAxisAlignment.CENTER)
-        self._page.controls.append(row3)
+        self._page.controls.append(row3) #
 
         # List View where the reply is printed
         self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)

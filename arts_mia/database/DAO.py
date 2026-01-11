@@ -35,7 +35,7 @@ class DAO:
         cursor.execute(query)
 
         for row in cursor:
-           o1 = objects_dict[row["o1"]]
+           o1 = objects_dict[row["o1"]] #
            o2 = objects_dict[row["o2"]]
            peso = row["peso"]
            result.append(Connessione(o1, o2, peso))  #costruisce una Connessione

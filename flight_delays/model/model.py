@@ -71,7 +71,7 @@ class Model:
 
         self._ricorsione(parziale, v1, t)
 
-        return self._bestPath, self._bestWeight
+        return self._bestPath, self._bestWeight #
 
     def _ricorsione(self, parziale, target, t):
         # Verificare che parziale sia una possibile soluzione

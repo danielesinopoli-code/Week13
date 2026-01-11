@@ -46,5 +46,5 @@ class Controller:
         id_oggetto= int(self._view._txtIdOggetto.value)
         lunghezza = int(self._view._ddLunghezza.value)
         percorsoMigliore, pesoMigliore = self._model.getPercorsoMAssimo(id_oggetto,lunghezza)
-        print("finito")
+        print("finito") #
 

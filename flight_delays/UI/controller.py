@@ -123,4 +123,4 @@ class Controller:
         for a in percorso_migliore:
             self._view.txt_result.controls.append(ft.Text(f"{a.ID} - {a.AIRPORT}"))
         self._view.txt_result.controls.append(ft.Text(f"\nPeso: {peso}"))
-        self._view.update_page()
+        self._view.update_page() #

@@ -78,7 +78,7 @@ class Model:
             if v not in parziale and v.classification == parziale[0].classification:
                 parziale.append(v)
                 self.ricorsione(parziale, lunghezza)
-                parziale.pop()
+                parziale.pop() #
 
 
 

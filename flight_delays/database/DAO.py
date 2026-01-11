@@ -64,7 +64,7 @@ class DAO():
 
         cursor.execute(query)
 
-        for row in cursor:
+        for row in cursor: #
             idP= row["ORIGIN_AIRPORT_ID"]
             idA= row["DESTINATION_AIRPORT_ID"]
             aPartenza= dizionarioAeroporti[idP]

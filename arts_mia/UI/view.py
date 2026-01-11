@@ -48,7 +48,7 @@ class View():
                                                 width=200)
 
         row2=ft.Row([self._ddLunghezza, self._btnCercaOggetti], alignment=ft.MainAxisAlignment.CENTER)
-        self._page.controls.append(row2)
+        self._page.controls.append(row2) #
 
 
 
